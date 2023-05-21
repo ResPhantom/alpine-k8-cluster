@@ -46,13 +46,13 @@ wget https://raw.githubusercontent.com/ResPhantom/alpine-k8-cluster/master/init.
 ```
 - Install git and clone the repository
 ```sh
-apk add git -y
+apk add git
 git clone https://github.com/ResPhantom/alpine-k8-cluster.git
 cd alpine-k8-cluster
 ```
 Install `bash` and give the `init.sh` permission to execute
 ```sh
-apk add bash -y
+apk add bash
 chmod +x init.sh
 ```
 
