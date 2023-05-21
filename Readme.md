@@ -1,6 +1,6 @@
 # Alpine releases
 
-Download link: `https://www.alpinelinux.org/downloads/`
+Download link: [https://www.alpinelinux.org/downloads/]
 
 # Install alpine
 Localhost login: `root` \
