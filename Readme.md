@@ -9,32 +9,24 @@ Run `setup-alpine`
 ## Example of Alpine setup
 
 Select keyboard layout [none]: `us` \
-Select variant (or 'aboort'): `us` 
-
-Enter system hostname [localhost]: Press Enter
-
-Available interfaces are: eth0 eth1
-Which one do you want to initialize? [eth0]: Press Enter
-Ip address for eth0? [dhcp]: Press Enter
-Do you want any manual network configuration? (y/n) [n]: Press Enter
-
+Select variant (or 'aboort'): `us` \
+Enter system hostname [localhost]: Press Enter \
+Available interfaces are: eth0 eth1 \
+Which one do you want to initialize? [eth0]: Press Enter \
+Ip address for eth0? [dhcp]: Press Enter \
+Do you want any manual network configuration? (y/n) [n]: Press Enter \
 New Password: `root` \
-Retype Password: `root` 
-
-Which Timezone are you in? ('?' for list) [UTC]: `Europe/Berlin`  
-
-HTTP/FTP proxy URL? [none]: Press Enter
-Which NTP client to run? ('busybox','openntpd','chrony' or 'none') [chrony]: `busybox`
-
-press `q` + Enter \
-Enter mirror number (1-72) or URL to add (or r/f/e/done) [1]: `r`
-
-Setup a user? (enter a lower-case loginname, or 'no') [no]: Press Enter
-Which server? ('openssh','dropbear', or none) [openssh]: Press Enter
-Allow root ssh login? ('?' for help) [phrohibit-password]: Press Enter
-Enter ssh key or URL for root (or 'none') [none]: Press Enter
-
-Available disks are: sda
+Retype Password: `root` \
+Which Timezone are you in? ('?' for list) [UTC]: `Europe/Berlin` \
+HTTP/FTP proxy URL? [none]: Press Enter \
+Which NTP client to run? ('busybox','openntpd','chrony' or 'none') [chrony]: `busybox` \
+Press `q` + Enter \
+Enter mirror number (1-72) or URL to add (or r/f/e/done) [1]: `r` \
+Setup a user? (enter a lower-case loginname, or 'no') [no]: Press Enter \
+Which server? ('openssh','dropbear', or none) [openssh]: Press Enter \
+Allow root ssh login? ('?' for help) [phrohibit-password]: Press Enter \
+Enter ssh key or URL for root (or 'none') [none]: Press Enter \
+Available disks are: sda \
 Which disks would you like to use? [none]: `sda` \
 How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?') [?]: `sys` \
 WARNING: Erase above disk(s) and continue? (y/n) [n]: `y` 
