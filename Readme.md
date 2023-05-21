@@ -33,10 +33,16 @@ Which disks would you like to use? [none]: `sda` \
 How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?') [?]: `sys` \
 WARNING: Erase above disk(s) and continue? (y/n) [n]: `y` 
 
-## Mount shared folder
-"vbox_shared" is the name of the shared folder
+## Download Kubernetes setup script
+Unfortunately to get the `init.sh` script you have 2 options: \
+- Download as a raw file
 ```sh
-mkdir -p /mnt/shared; modprobe -a vboxsf; mount -t vboxsf vbox_shared /mnt/shared
+curl https://raw.githubusercontent.com/ResPhantom/alpine-kubernetes-cluster/master/init.sh -o init.sh
+```
+- Download git and clone the repository
+```sh
+apk add git -y
+git clone https://github.com/ResPhantom/alpine-kubernetes-cluster.git
 ```
 
 ## Install Kubernetes
