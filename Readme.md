@@ -26,8 +26,7 @@ Which Timezone are you in? ('?' for list) [UTC]: `Europe/Berlin`
 HTTP/FTP proxy URL? [none]: Press Enter
 Which NTP client to run? ('busybox','openntpd','chrony' or 'none') [chrony]: `busybox`
 
-press `q`\
--### Note: r = random \
+press `q` + Enter \
 Enter mirror number (1-72) or URL to add (or r/f/e/done) [1]: `r`
 
 Setup a user? (enter a lower-case loginname, or 'no') [no]: Press Enter
