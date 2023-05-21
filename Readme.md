@@ -35,11 +35,11 @@ WARNING: Erase above disk(s) and continue? (y/n) [n]: `y`
 
 ## Download Kubernetes setup script
 Unfortunately to get the `init.sh` script you have 2 options:
-- Download as a raw file
+- Download the raw file
 ```sh
 curl https://raw.githubusercontent.com/ResPhantom/alpine-kubernetes-cluster/master/init.sh -o init.sh
 ```
-- Download git and clone the repository
+- Install git and clone the repository
 ```sh
 apk add git -y
 git clone https://github.com/ResPhantom/alpine-kubernetes-cluster.git
