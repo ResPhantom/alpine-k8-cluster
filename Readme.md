@@ -34,7 +34,7 @@ How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?') [?]: `sys` 
 WARNING: Erase above disk(s) and continue? (y/n) [n]: `y` 
 
 ## Download Kubernetes setup script
-Unfortunately to get the `init.sh` script you have 2 options: \
+Unfortunately to get the `init.sh` script you have 2 options:
 - Download as a raw file
 ```sh
 curl https://raw.githubusercontent.com/ResPhantom/alpine-kubernetes-cluster/master/init.sh -o init.sh
