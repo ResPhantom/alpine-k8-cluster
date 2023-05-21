@@ -10,22 +10,22 @@ Run `setup-alpine`
 
 Select keyboard layout [none]: `us` \
 Select variant (or 'aboort'): `us` \
-Enter system hostname [localhost]: Press Enter \
+Enter system hostname [localhost]: `ENTER` \
 Available interfaces are: eth0 eth1 \
-Which one do you want to initialize? [eth0]: Press Enter \
-Ip address for eth0? [dhcp]: Press Enter \
-Do you want any manual network configuration? (y/n) [n]: Press Enter \
+Which one do you want to initialize? [eth0]: `ENTER` \
+Ip address for eth0? [dhcp]: `ENTER` \
+Do you want any manual network configuration? (y/n) [n]: `ENTER` \
 New Password: `root` \
 Retype Password: `root` \
 Which Timezone are you in? ('?' for list) [UTC]: `Europe/Berlin` \
-HTTP/FTP proxy URL? [none]: Press Enter \
+HTTP/FTP proxy URL? [none]: `ENTER` \
 Which NTP client to run? ('busybox','openntpd','chrony' or 'none') [chrony]: `busybox` \
-Press `q` + Enter \
+Press `q` + `ENTER` \
 Enter mirror number (1-72) or URL to add (or r/f/e/done) [1]: `r` \
-Setup a user? (enter a lower-case loginname, or 'no') [no]: Press Enter \
-Which server? ('openssh','dropbear', or none) [openssh]: Press Enter \
-Allow root ssh login? ('?' for help) [phrohibit-password]: Press Enter \
-Enter ssh key or URL for root (or 'none') [none]: Press Enter \
+Setup a user? (enter a lower-case loginname, or 'no') [no]: `ENTER` \
+Which server? ('openssh','dropbear', or none) [openssh]: `ENTER` \
+Allow root ssh login? ('?' for help) [phrohibit-password]: `ENTER` \
+Enter ssh key or URL for root (or 'none') [none]: `ENTER` \
 Available disks are: sda \
 Which disks would you like to use? [none]: `sda` \
 How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?') [?]: `sys` \
