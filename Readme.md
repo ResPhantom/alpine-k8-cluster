@@ -2,8 +2,7 @@
 
 Alpine Download Page: [ https://www.alpinelinux.org/downloads/ ]
 
-I reccomend the [standard x86_64] version, even though it might be an old version. \
-The `init.sh` script will update to the latest stable version.
+I reccomend the [standard x86_64] version, even though it might be an old version the `init.sh` script will update to the latest stable version.
 
 # Install alpine
 Localhost login: `root` \
