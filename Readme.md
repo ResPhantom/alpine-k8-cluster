@@ -2,7 +2,7 @@
 
 Alpine Download Page: [ https://www.alpinelinux.org/downloads/ ]
 
-I reccomend the [standard x86_64] version, even though it might be an old version the `init.sh` script will update to the latest stable version.
+I reccomend the [standard x86_64][1] version, even though it might be an old version the `init.sh` script will update to the latest stable version.
 
 # Install alpine
 Localhost login: `root` \
@@ -85,5 +85,4 @@ kubeadm join 10.0.0.150:6443 --token xunjoc.yx2m65r8inhxph9i --discovery-token-c
 ```
 
 [//]: # (SOME USEFUL LINKS )
-
-    [standard x86_64]: <https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-standard-3.18.0-x86_64.iso>
+[1]: https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-standard-3.18.0-x86_64.iso
