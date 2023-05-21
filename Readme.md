@@ -64,7 +64,7 @@ echo "master-1" > /etc/hostname
 ```
 NOTE: In the following command you can add the `--ignore-preflight-errors=all` flag to bypass preflight checks for machines with less than recommended resources, however the Kubernetes cluster might not fully install correctly. 
 
-Recommended resources are `2 CPU` and `2GB RAM`
+Recommended resources are `2 CPU` and `2 GB RAM`
 
 Initialise Kubernetes cluster master node. 
 ```sh
