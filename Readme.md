@@ -1,6 +1,9 @@
 # Alpine releases
 
-Download link: [https://www.alpinelinux.org/downloads/]
+Download link: [ https://www.alpinelinux.org/downloads/ ]
+
+I reccomend the [standard x86_64] version, even though it might be an old version. \
+The `init.sh` script will update to the latest stable version.
 
 # Install alpine
 Localhost login: `root` \
@@ -81,3 +84,6 @@ Copy over the uniquely generated command from master logs into 'join.sh', exampl
 ```sh
 kubeadm join 10.0.0.150:6443 --token xunjoc.yx2m65r8inhxph9i --discovery-token-ca-cert-hash sha256:e38dd277fe1143771dfe17261d9862e5313d1cdf3922ea86f8f73b6c0a515798
 ```
+
+[//]:
+    [standard x86_64] <https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-standard-3.18.0-x86_64.iso>
