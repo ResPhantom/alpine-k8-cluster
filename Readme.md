@@ -62,9 +62,10 @@ Update hostname
 hostname master-1
 echo "master-1" > /etc/hostname
 ```
-Initialise Kubernetes master node, bypass preflight checks for small virtual machines
+Initialise Kubernetes master node. Recommended resources: [2 CPU] and [2GB RAM].
+NOTE: Can add `--ignore-preflight-errors=all` flag to bypass preflight checks for small machines, but might not fully install correctly. 
 ```sh
-kubeadm init --pod-network-cidr=10.244.0.0/16 --node-name=$(hostname) --ignore-preflight-errors=all
+kubeadm init --pod-network-cidr=10.244.0.0/16 --node-name=$(hostname)
 ```
 Setup Kubernetes cli config by replacing existing config with a symlink to the admin account
 ```sh
