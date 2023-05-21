@@ -59,8 +59,7 @@ kubeadm init --pod-network-cidr=10.244.0.0/16 --node-name=$(hostname) --ignore-p
 ```
 Setup Kubernetes cli config by replacing existing config with a symlink to the admin account
 ```sh
-mkdir ~/.kube
-rm /root/.kube/config
+rm /root/.kube/config || mkdir ~/.kube
 ln -s /etc/kubernetes/admin.conf /root/.kube/config
 ```
 Install a CNI controller, using flannel for simplicity
