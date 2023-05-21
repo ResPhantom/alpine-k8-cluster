@@ -82,9 +82,9 @@ kubeadm config images pull
 
 # Countdown for reboot to use new Linux Kernel version
 replace="\033[1A\033[K"
-reboot_countdown=5
+reboot_countdown="5"
 
-for (( i=${reboot_countdown}; i >= 1; --i ))
+for i in $(seq ${reboot_countdown} -1 1)
 do 
     echo "Updating Kernel. Rebooting in $i."
     sleep 0.5
