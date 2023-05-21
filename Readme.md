@@ -79,7 +79,7 @@ Install a CNI controller, we can use flannel for simplicity
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
-You should now be able to use the custom join command in the other VM by generating the join command
+You should now be able to use the custom join command in the other kuernetes machine setup by generating the join command
 ```sh
 kubeadm token create --print-join-command
 ```
