@@ -1,6 +1,8 @@
 #!/bin/sh
 
 KUBE_VERSION="${KUBE_VERSION:=1.26}"
+HOSTNAME="${HOSTNAME:=worker}"
+CIDR="${CIDR:=10.244.0.0/16}"
 
 # Update Linux Kernel and APK library to the latest-stable version
 cat <<'EOT' >> /etc/apk/repositories
@@ -70,8 +72,8 @@ apk add kubeadm=~${KUBE_VERSION}
 apk add kubectl=~${KUBE_VERSION}
 
 # Setup default hostname
-hostname 'worker'
-echo 'worker' > /etc/hostname
+hostname ${HOSTNAME}
+echo ${HOSTNAME} > /etc/hostname
 
 # Setup default kubeconfig
 mkdir ~/.kube > /dev/null 2>&1

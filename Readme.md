@@ -50,8 +50,9 @@ apk add git -y
 git clone https://github.com/ResPhantom/alpine-k8-cluster.git
 cd alpine-k8-cluster
 ```
-Give the `init.sh` permission to execute
+Install `bash` and give the `init.sh` permission to execute
 ```sh
+apk add bash -y
 chmod +x init.sh
 ```
 
@@ -67,6 +68,7 @@ Run the folloing command
 ```
 
 ## Register master node
+### Manual method
 Update hostname
 ```sh
 hostname master-1
@@ -93,6 +95,11 @@ You should now be able to use the custom join command in the other kuernetes mac
 ```sh
 kubeadm token create --print-join-command
 ```
+<!--### Automated method
+```sh
+init.sh master-setup
+```
+### Confirm setup-->
 
 ## Register worker node
 Update hostname
