@@ -49,7 +49,7 @@ mkdir -p /mnt/shared; modprobe -a vboxsf; mount -t vboxsf vbox_shared /mnt/share
 ## Install Kubernetes
 Run the folloing command
 ```sh
-/mnt/shared/init.sh
+./init.sh
 ```
 
 ## Register Master Node
