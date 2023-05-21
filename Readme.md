@@ -3,7 +3,7 @@
 Download link: `https://www.alpinelinux.org/downloads/`
 
 # Install alpine
-Localhost login: `root`
+Localhost login: `root` \
 Run `setup-alpine`
 
 ## Example of Alpine setup
@@ -42,11 +42,15 @@ WARNING: Erase above disk(s) and continue? (y/n) [n]: `y`
 
 ## Mount shared folder
 "vbox_shared" is the name of the shared folder
-`mkdir -p /mnt/shared; modprobe -a vboxsf; mount -t vboxsf vbox_shared /mnt/shared`
+```sh
+mkdir -p /mnt/shared; modprobe -a vboxsf; mount -t vboxsf vbox_shared /mnt/shared
+```
 
 ## Install Kubernetes
 Run the folloing command
+```sh
 /mnt/shared/init.sh
+```
 
 ## Register Master Node
 Update hostname
@@ -55,11 +59,17 @@ hostname master-1
 echo "master-1" > /etc/hostname
 ```
 Get exact kubernetes version
-`kubeadm version` \
+```sh
+kubeadm version
+```
 Get IP address
-`ifconfig` \
+```sh
+ifconfig
+```
 Initialise Kubernetes master node, bypass preflight checks for small virtual machines
-`kubeadm init --apiserver-advertise-address=<Master Node IP Here> --kubernetes version=1.26.1 --ignore-preflight-errors=all | tee /mnt/shared/logs` \
+```sh
+kubeadm init --apiserver-advertise-address=<Master Node IP Here> --kubernetes version=1.26.1 --ignore-preflight-errors=all
+```
 You should now be able to use the custom join command in the other VM
 
 ## Register Worker Node
@@ -69,4 +79,6 @@ hostname worker-1
 echo "worker-1" > /etc/hostname
 ```
 Copy over the uniquely generated command from master logs into 'join.sh', example of the command below:
-`kubeadm join 10.0.0.150:6443 --token xunjoc.yx2m65r8inhxph9i --discovery-token-ca-cert-hash sha256:e38dd277fe1143771dfe17261d9862e5313d1cdf3922ea86f8f73b6c0a515798`
+```sh
+kubeadm join 10.0.0.150:6443 --token xunjoc.yx2m65r8inhxph9i --discovery-token-ca-cert-hash sha256:e38dd277fe1143771dfe17261d9862e5313d1cdf3922ea86f8f73b6c0a515798
+```
