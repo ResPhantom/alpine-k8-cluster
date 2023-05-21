@@ -40,11 +40,11 @@ reboot
 
 ## Download Kubernetes setup script
 Unfortunately to get the `init.sh` script you have to type out one of 2 options:
-- Download the raw file
+Option 1: Download the raw file
 ```sh
 wget https://raw.githubusercontent.com/ResPhantom/alpine-k8-cluster/master/init.sh
 ```
-- Install git and clone the repository
+Option 2: Install git and clone the repository
 ```sh
 apk add git
 git clone https://github.com/ResPhantom/alpine-k8-cluster.git
