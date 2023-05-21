@@ -33,6 +33,11 @@ Which disks would you like to use? [none]: `sda` \
 How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?') [?]: `sys` \
 WARNING: Erase above disk(s) and continue? (y/n) [n]: `y` 
 
+NOTE: Don't forget to reboot.
+```sh
+reboot
+```
+
 ## Download Kubernetes setup script
 Unfortunately to get the `init.sh` script you have 2 options:
 - Download the raw file
