@@ -75,7 +75,7 @@ Setup Kubernetes cli config by replacing existing config with a symlink to the a
 rm /root/.kube/config || mkdir ~/.kube
 ln -s /etc/kubernetes/admin.conf /root/.kube/config
 ```
-Install a CNI controller, using flannel for simplicity
+Install a CNI controller, we can use flannel for simplicity
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
