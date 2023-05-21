@@ -46,6 +46,7 @@ git clone https://github.com/ResPhantom/alpine-kubernetes-cluster.git
 ```
 
 ## Install Kubernetes
+Note: This script has to be run for both Master and Worker nodes
 You can set the kubernetes version manually by setting the `KUBE_VERSION` variable
 ```sh
 export KUBE_VERSION=1.27
@@ -55,7 +56,7 @@ Run the folloing command
 ./init.sh
 ```
 
-## Register Master Node
+## Register Master node
 Update hostname
 ```sh
 hostname master-1
@@ -79,7 +80,7 @@ You should now be able to use the custom join command in the other VM by generat
 kubeadm token create --print-join-command
 ```
 
-## Register Worker Node
+## Register Worker node
 Update hostname
 ```sh
 hostname worker-1
