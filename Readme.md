@@ -70,7 +70,7 @@ Initialise Kubernetes cluster master node.
 ```sh
 kubeadm init --pod-network-cidr=10.244.0.0/16 --node-name=$(hostname)
 ```
-Setup Kubernetes cli config by replacing existing config with a symlink to the admin account
+Setup Kubernetes cli config by replacing existing config with a symlink to the admin config
 ```sh
 rm /root/.kube/config || mkdir ~/.kube
 ln -s /etc/kubernetes/admin.conf /root/.kube/config
