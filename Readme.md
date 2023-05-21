@@ -50,14 +50,14 @@ Run the folloing command
 
 ## Register Master Node
 Update hostname
-`hostname master-1`
-`echo "master-1" > /etc/hostname`
+`hostname master-1` \
+`echo "master-1" > /etc/hostname` \
 Get exact kubernetes version
-`kubeadm version`
+`kubeadm version` \
 Get IP address
-`ifconfig` 
+`ifconfig` \
 Initialise Kubernetes master node, bypass preflight checks for small virtual machines
-`kubeadm init --apiserver-advertise-address=<Master Node IP Here> --kubernetes version=1.26.1 --ignore-preflight-errors=all | tee /mnt/shared/logs`
+`kubeadm init --apiserver-advertise-address=<Master Node IP Here> --kubernetes version=1.26.1 --ignore-preflight-errors=all | tee /mnt/shared/logs` \
 You should now be able to use the custom join command in the other VM
 
 ## Register Worker Node
