@@ -38,6 +38,10 @@ mkdir -p /mnt/shared; modprobe -a vboxsf; mount -t vboxsf vbox_shared /mnt/share
 ```
 
 ## Install Kubernetes
+You can set the kubernetes version manually by setting the `KUBE_VERSION` variable
+```sh
+export KUBE_VERSION=1.27
+```
 Run the folloing command
 ```sh
 ./init.sh
@@ -52,6 +56,16 @@ echo "master-1" > /etc/hostname
 Initialise Kubernetes master node, bypass preflight checks for small virtual machines
 ```sh
 kubeadm init --pod-network-cidr=10.244.0.0/16 --node-name=$(hostname) --ignore-preflight-errors=all
+```
+Setup Kubernetes cli config by replacing existing config with a symlink to the admin account
+```sh
+mkdir ~/.kube
+rm /root/.kube/config
+ln -s /etc/kubernetes/admin.conf /root/.kube/config
+```
+Install a CNI controller, using flannel for simplicity
+```sh
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
 You should now be able to use the custom join command in the other VM by generating the join command
 ```sh

@@ -1,8 +1,8 @@
 #!/bin/sh
 
-KUBE_VERSION='1.26'
+KUBE_VERSION="${KUBE_VERSION:=1.26}"
 
-# Update APK library to the latest-stable version
+# Update Linux Kernel and APK library to the latest-stable version
 cat <<'EOT' >> /etc/apk/repositories
 http://dl-cdn.alpinelinux.org/alpine/latest-stable/main
 http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
@@ -80,7 +80,7 @@ ln -s /etc/kubernetes/kubelet.conf /root/.kube/config > /dev/null 2>&1
 # Pre-pulling kubernetes images
 kubeadm config images pull
 
-# Reboot countdown to 
+# Countdown for reboot to use new Linux Kernel version
 replace="\033[1A\033[K"
 reboot_countdown=5
 
