@@ -62,7 +62,7 @@ You should now be able to use the custom join command in the other VM
 
 ## Register Worker Node
 Update hostname
-`hostname worker-1`
-`echo "worker-1" > /etc/hostname`   
+`hostname worker-1` \
+`echo "worker-1" > /etc/hostname` \
 Copy over the uniquely generated command from master logs into 'join.sh', example of the command below:
 `kubeadm join 10.0.0.150:6443 --token xunjoc.yx2m65r8inhxph9i --discovery-token-ca-cert-hash sha256:e38dd277fe1143771dfe17261d9862e5313d1cdf3922ea86f8f73b6c0a515798`
