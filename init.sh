@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# TODO LIST:
+# - Automate master node setup
+# - Create options list
+
 KUBE_VERSION="${KUBE_VERSION:=1.26}"
 HOSTNAME="${HOSTNAME:=worker}"
 CIDR="${CIDR:=10.244.0.0/16}"
