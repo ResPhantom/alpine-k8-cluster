@@ -58,19 +58,14 @@ Update hostname
 hostname master-1
 echo "master-1" > /etc/hostname
 ```
-Get exact kubernetes version
-```sh
-kubeadm version
-```
-Get IP address
-```sh
-ifconfig
-```
 Initialise Kubernetes master node, bypass preflight checks for small virtual machines
 ```sh
-kubeadm init --apiserver-advertise-address=<Master Node IP Here> --kubernetes version=1.26.1 --ignore-preflight-errors=all
+kubeadm init --pod-network-cidr=10.244.0.0/16 --node-name=$(hostname) --ignore-preflight-errors=all
 ```
-You should now be able to use the custom join command in the other VM
+You should now be able to use the custom join command in the other VM by generating the join command
+```sh
+kubeadm token create --print-join-command
+```
 
 ## Register Worker Node
 Update hostname
