@@ -62,7 +62,7 @@ Update hostname
 hostname master-1
 echo "master-1" > /etc/hostname
 ```
-Initialise Kubernetes master node. Recommended resources: [2 CPU] and [2GB RAM].
+Initialise Kubernetes master node. Recommended resources: [2 CPU] and [2GB RAM]. \
 NOTE: Can add `--ignore-preflight-errors=all` flag to bypass preflight checks for small machines, but might not fully install correctly. 
 ```sh
 kubeadm init --pod-network-cidr=10.244.0.0/16 --node-name=$(hostname)
