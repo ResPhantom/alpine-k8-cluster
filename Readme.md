@@ -22,7 +22,7 @@ Retype Password: `root` \
 Which Timezone are you in? ('?' for list) [UTC]: `Europe/Berlin` \
 HTTP/FTP proxy URL? [none]: `ENTER` \
 Which NTP client to run? ('busybox','openntpd','chrony' or 'none') [chrony]: `busybox` \
-Press `q` + `ENTER` \
+Press `q` \
 Enter mirror number (1-72) or URL to add (or r/f/e/done) [1]: `r` \
 Setup a user? (enter a lower-case loginname, or 'no') [no]: `ENTER` \
 Which server? ('openssh','dropbear', or none) [openssh]: `ENTER` \
