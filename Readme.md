@@ -1,12 +1,18 @@
 # What is this project all about?
 
-In essence this project is used to make it easier to set up a kubernetes cluster on Alpine Linux. 'Why use Alpine?', you ask. Alpine is a linux distro that focuses on 2 things, security and distro size. 
+In essence this project is used to make it easier to set up a kubernetes cluster on Alpine Linux. 
 
-By having a smaller distro, you tend to have a lot less packages and libraries installed. This means there is a less likelyhood that one of them have an unknown exploitable vulnerability. Also by making use of a lightweight OS, you have more resources dedicated to running your apps. So in general less means more, less unnecessary dangerous packages and libraries increases security, available resources and less maintenence overhead.
+'Why use Alpine?', you ask. Alpine is a linux distro that focuses on 2 things, security and distro size. By having a smaller distro, you tend to have a lot less packages and libraries installed. This means there is a less likelyhood that one of them have an unknown exploitable vulnerability. 
+
+Also by making use of a lightweight OS, you have more resources dedicated to running your apps. So in general less means more, less unnecessary dangerous packages and libraries increases security, available resources and less maintenence overhead.
 
 # Furture prospects
 
-I would like to find a suitable method to set up the minirootfs version of Alpine. The standard Alpine ISO is roughly just below 200MB, however the minirootfs is around 3.5MB. The only thing missing is the boot functionality. I want to find a way to build an compact ISO alpine image that is built around using Kubernetes in a secure datacenter environment. This would mean kernel updates should be seamless and simple, setting up a cluster should be quick and painless and also to include the capability or features to monitor your physical machines. Such as your Network packets, latency, CPU usage, RAM, storage and various other common useful statistics. For now we'll have to settle with humble beginnings - a script that needs a little bit of work.
+I would like to find a suitable method to set up the minirootfs version of Alpine. The standard Alpine ISO is roughly just below 200MB, however the minirootfs is around 3.5MB. The only thing missing is the boot functionality. 
+
+I want to find a way to build an compact ISO alpine image that is built around using Kubernetes in a secure datacenter environment. This would mean kernel updates should be seamless and simple, setting up a cluster should be quick and painless and also to include the capability or features to monitor your physical machines. 
+
+Such as your Network packets, latency, CPU usage, RAM, storage and various other common useful statistics. For now we'll have to settle with humble beginnings - a script that needs a little bit of work.
 
 # Alpine releases
 
