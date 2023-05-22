@@ -1,6 +1,7 @@
 # What is this project all about?
 
-In essence this project is used to make it easier to set up a kubernetes cluster on Alpine Linux.'Why use Alpine?', you ask. Alpine is a linux distro that focuses on 2 things, security and distro size.
+In essence this project is used to make it easier to set up a kubernetes cluster on Alpine Linux. 'Why use Alpine?', you ask. Alpine is a linux distro that focuses on 2 things, security and distro size. 
+
 By having a smaller distro, you tend to have a lot less packages and libraries installed. This means there is a less likelyhood that one of them have an unknown exploitable vulnerability. Also by making use of a lightweight OS, you have more resources dedicated to running your apps. So in general less means more, less unnecessary dangerous packages and libraries increases security, available resources and less maintenence overhead.
 
 # Furture prospects
@@ -72,11 +73,18 @@ You can set the kubernetes version manually by setting the `KUBE_VERSION` variab
 export KUBE_VERSION=1.27
 ```
 Run the folloing command
+Note: `init.sh` will copy and rename itself to `/bin/kubecom`
 ```sh
-./init.sh
+./init.sh init
 ```
 
 ## Register master node
+
+### Automated method
+```sh
+kubecom generate-cluster
+```
+
 ### Manual method
 Update hostname
 ```sh
@@ -104,11 +112,11 @@ You should now be able to use the custom join command in the other kuernetes mac
 ```sh
 kubeadm token create --print-join-command
 ```
-<!--### Automated method
+
+### Confirm setup
 ```sh
-init.sh master-setup
+kubectl get all -n kube-system
 ```
-### Confirm setup-->
 
 ## Register worker node
 Update hostname
