@@ -31,6 +31,7 @@ EOT
 
 upgrade() {
   # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
+  # See documentation: https://wiki.alpinelinux.org/wiki/Running_glibc_programs
   # Install util packages
   apk add gcompat
           uuidgen \
