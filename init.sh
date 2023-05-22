@@ -4,7 +4,7 @@
 # - Fix arguements
 # - Handle kubeadm args better
 # - Finish and test update_cluster function
-# - musl vs glibc
+# - musl vs glibc - done
 
 KUBE_VERSION="${KUBE_VERSION:=1.26}"
 HOSTNAME="${HOSTNAME:=worker}"
@@ -30,8 +30,10 @@ EOT
 }
 
 upgrade() {
+  # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
   # Install util packages
-  apk add uuidgen \
+  apk add gcompat
+          uuidgen \
           nfs-utils \
           cni-plugins \
           cni-plugin-flannel \
