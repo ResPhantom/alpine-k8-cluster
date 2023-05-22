@@ -125,6 +125,10 @@ kubectl get all -n kube-system
 ```
 
 ## Register worker node
+On a master node run the following join command
+```sh
+kubeadm token create --print-join-command
+```
 Update hostname
 ```sh
 hostname worker-1
