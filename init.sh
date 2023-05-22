@@ -4,6 +4,7 @@
 # - Fix arguements
 # - Handle kubeadm args better
 # - Finish and test update_cluster function
+# - musl vs glibc
 
 KUBE_VERSION="${KUBE_VERSION:=1.26}"
 HOSTNAME="${HOSTNAME:=worker}"
