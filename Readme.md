@@ -8,11 +8,11 @@ Also by making use of a lightweight OS, you have more resources dedicated to run
 
 # Furture prospects
 
-I would like to find a suitable method to set up the minirootfs version of Alpine. The standard Alpine ISO is roughly just below 200MB, however the minirootfs is around 3.5MB. The only thing missing is the boot functionality. 
+I would like to find a suitable method to use the minirootfs version of Alpine instead of the the standard Alpine ISO, because the minirootfs is around 3.5MB and standard Alpine ISO is roughly 200MB. The only thing missing for the minirootfs is a boot functionality. 
 
-I want to find a way to build an compact ISO alpine image that is built around using Kubernetes in a secure datacenter environment. This would mean kernel updates should be seamless and simple, setting up a cluster should be quick and painless and also to include the capability or features to monitor your physical machines. 
+I want to find a way to build an compact ISO alpine image that is built around using Kubernetes in a secure datacenter environment. This would include seamless and simple kernel updates, quick cluster setup and the capabilities to monitor your physical machines. 
 
-Such as your Network packets, latency, CPU usage, RAM, storage and various other common useful statistics. For now we'll have to settle with humble beginnings - a script that needs a little bit of work.
+Such as your Network packets, latency, CPU usage, RAM, storage and various other common useful statistics. Unfortunately, for now we'll have to settle with humble beginnings, which is a script that needs a little bit of work.
 
 # Alpine releases
 
