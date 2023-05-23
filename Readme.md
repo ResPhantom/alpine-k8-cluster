@@ -49,26 +49,25 @@ Which disks would you like to use? [none]: `sda` \
 How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?') [?]: `sys` \
 WARNING: Erase above disk(s) and continue? (y/n) [n]: `y` 
 
-NOTE: Don't forget to reboot.
+NOTE: Don't forget to unmount/remove the iso and reboot.
 ```sh
 reboot
 ```
 
 ## Download Kubernetes setup script
-Unfortunately to get the `init.sh` script you have to type out one of 2 options:
+Unfortunately to get the `init.sh` script you have to type out one of 2 options: \
 Option 1: Download the raw file
 ```sh
-wget https://raw.githubusercontent.com/ResPhantom/alpine-k8-cluster/master/init.sh
+wget https://raw.githubusercontent.com/resphantom/alpine-k8/master/init.sh
 ```
 Option 2: Install git and clone the repository
 ```sh
 apk add git
-git clone https://github.com/ResPhantom/alpine-k8-cluster.git
+git clone https://github.com/resphantom/alpine-k8.git
 cd alpine-k8-cluster
 ```
 Install `bash` and give the `init.sh` permission to execute
 ```sh
-apk add bash
 chmod +x init.sh
 ```
 
