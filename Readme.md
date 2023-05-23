@@ -49,7 +49,7 @@ Which disks would you like to use? [none]: `sda` \
 How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?') [?]: `sys` \
 WARNING: Erase above disk(s) and continue? (y/n) [n]: `y` 
 
-NOTE: Don't forget to unmount/remove the iso and reboot.
+NOTE: Don't forget to unmount iso and reboot.
 ```sh
 reboot
 ```
@@ -77,7 +77,7 @@ You can set the kubernetes version manually by setting the `KUBE_VERSION` variab
 ```sh
 export KUBE_VERSION=1.27
 ```
-Run the folloing command
+Run the folloing command \
 Note: `init.sh` will copy and rename itself to `/bin/kubecom`
 ```sh
 ./init.sh init
