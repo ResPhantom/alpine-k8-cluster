@@ -96,6 +96,11 @@ Update hostname
 hostname master-1
 echo "master-1" > /etc/hostname
 ```
+Forward IP address
+```sh
+echo 1 > /proc/sys/net/ipv4/ip_forward
+```
+
 NOTE: In the following command you can add the `--ignore-preflight-errors=all` flag to bypass preflight checks for machines with less than recommended resources, however the Kubernetes cluster might not fully install correctly. 
 
 Recommended resources are `2 CPU` and `2 GB RAM`

@@ -50,7 +50,7 @@ upgrade() {
   # Add kernel module for networking
   echo "br_netfilter" > /etc/modules-load.d/k8s.conf
   modprobe br_netfilter
-  echo 1 > /proc/sys/net/ipv4/ip_forward
+  
 
   # Remove swap storage
   cat /etc/fstab | grep -v swap > temp.fstab
@@ -120,6 +120,9 @@ generate_cluster() {
   # Set hostname
   hostname ${HOSTNAME}
   echo ${HOSTNAME} > /etc/hostname
+
+  # Forward IP
+  echo 1 > /proc/sys/net/ipv4/ip_forward
 
   # Create master node and subnet
   kubeadm init --pod-network-cidr=${CIDR} --node-name=$(hostname) $IGNORE_PREFLIGHT_ERRORS
