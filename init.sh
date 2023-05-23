@@ -50,7 +50,6 @@ upgrade() {
   # Add kernel module for networking
   echo "br_netfilter" > /etc/modules-load.d/k8s.conf
   modprobe br_netfilter
-  
 
   # Remove swap storage
   cat /etc/fstab | grep -v swap > temp.fstab
@@ -200,6 +199,9 @@ generate_cluster_logic() {
       *) help
     esac
   done
+  echo $IGNORE_PREFLIGHT_ERRORS
+  echo $HOSTNAME
+  echo $CIDR
   generate_cluster
 }
 

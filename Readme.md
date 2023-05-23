@@ -133,12 +133,13 @@ On a master node run the following join command
 ```sh
 kubeadm token create --print-join-command
 ```
-Update hostname
+On the worker node update the hostname
 ```sh
 hostname worker-1
 echo "worker-1" > /etc/hostname
 ```
-Copy over the uniquely generated command from the master node into 'join.sh', example of a kubernetes join command below:
+Copy or retype over the uniquely generated command from the master node to the worker node, example of a kubernetes join command below: \
+NOTE: still looking for a simple way to do this, but for now this is how it's done
 ```sh
 kubeadm join 10.0.0.150:6443 --token xunjoc.yx2m65r8inhxph9i --discovery-token-ca-cert-hash sha256:e38dd277fe1143771dfe17261d9862e5313d1cdf3922ea86f8f73b6c0a515798
 ```
