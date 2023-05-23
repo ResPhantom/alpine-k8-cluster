@@ -137,9 +137,9 @@ On the worker node update the hostname
 ```sh
 hostname worker-1
 echo "worker-1" > /etc/hostname
-```
-Copy or retype over the uniquely generated command from the master node to the worker node, example of a kubernetes join command below: \
-NOTE: still looking for a simple way to do this, but for now this is how it's done
+````
+NOTE: still looking for a simple way to do this, but for now this is the way \
+Copy or retype over the uniquely generated command from the master node to the worker node, example of a kubernetes join command below: 
 ```sh
 kubeadm join 10.0.0.150:6443 --token xunjoc.yx2m65r8inhxph9i --discovery-token-ca-cert-hash sha256:e38dd277fe1143771dfe17261d9862e5313d1cdf3922ea86f8f73b6c0a515798
 ```
