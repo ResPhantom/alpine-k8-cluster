@@ -87,7 +87,7 @@ Note: `init.sh` will copy and rename itself to `/bin/kubecom`
 
 ### Automated method
 ```sh
-kubecom generate-cluster
+kubecon generate-cluster
 ```
 
 ### Manual method
