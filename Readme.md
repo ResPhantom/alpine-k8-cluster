@@ -4,7 +4,7 @@ In essence this project is used to make it easier to set up a kubernetes cluster
 
 'Why use Alpine?', you ask. Alpine is a linux distro that focuses on 2 things, security and distro size. By having a smaller distro, you tend to have a lot less packages and libraries installed. This means there is a less likelyhood that one of them have an unknown exploitable vulnerability. 
 
-Also by making use of a lightweight OS, you have more resources dedicated to running your apps. So in general less means more, less unnecessary dangerous packages and libraries increases security, available resources and less maintenence overhead.
+Also by making use of a lightweight OS, you have more resources dedicated to running your apps. Less is more.
 
 # Furture prospects
 
@@ -124,6 +124,10 @@ kubectl get all -n kube-system
 ```
 
 ## Register worker node
+On a master node run the following join command
+```sh
+kubeadm token create --print-join-command
+```
 Update hostname
 ```sh
 hostname worker-1
