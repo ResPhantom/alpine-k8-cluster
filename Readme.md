@@ -66,7 +66,7 @@ apk add git
 git clone https://github.com/resphantom/alpine-k8.git
 cd alpine-k8-cluster
 ```
-Install `bash` and give the `init.sh` permission to execute
+Give the `init.sh` permission to execute
 ```sh
 chmod +x init.sh
 ```
