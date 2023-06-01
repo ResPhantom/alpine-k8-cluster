@@ -114,7 +114,6 @@ restart() {
 
 generate_cluster() {
   # Set hostname
-  if [ $HOSTNAME -eq 'worker' ];then HOSTNAME="master";fi
   hostname ${HOSTNAME}
   echo ${HOSTNAME} > /etc/hostname
 
@@ -182,10 +181,10 @@ init_logic() {
 }
 
 generate_cluster_logic() {
+  HOSTNAME="master"
   while [ $# -gt 0 ]
   do
     arg="$1"
-    echo $1
     shift;
     case "${arg}" in
       "--ignore-preflight-errors" )
@@ -199,7 +198,7 @@ generate_cluster_logic() {
       *) help
     esac
   done
-  # generate_cluster
+  generate_cluster
   echo $IGNORE_PREFLIGHT_ERRORS
   echo $HOSTNAME
   echo $CIDR
@@ -211,9 +210,9 @@ shift;
 case "${opt}" in
   "update-kernel" ) update; restart;
       ;;
-  "init" ) init_logic
+  "init" ) init_logic $@
       ;; 
-  "generate-cluster" ) generate_cluster_logic
+  "generate-cluster" ) generate_cluster_logic $@
       ;;
   "destroy-cluster" ) destroy_cluster
       ;;
