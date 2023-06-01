@@ -30,17 +30,6 @@ EOT
 }
 
 upgrade() {
-  # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
-  # See documentation: https://wiki.alpinelinux.org/wiki/Running_glibc_programs
-  # Install util packages
-  apk add gcompat \
-          uuidgen \
-          nfs-utils \
-          cni-plugins \
-          cni-plugin-flannel \
-          flannel-contrib-cni \
-          flannel
-
   # Install Kubernetes packages
   apk add kubelet \
           kubeadm \
@@ -75,6 +64,10 @@ upgrade() {
   # Ensure that brigeded packets traverse iptable rules
   echo "net.bridge.bridge-nf-call-iptables=1" >> /etc/sysctl.conf
   sysctl net.bridge.bridge-nf-call-iptables=1
+
+  # Forward IP
+  echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+  sysctl net.ipv4.ip_forward=1
 
   # Pin your versions!  If you update and the nodes get out of sync, it implodes.
   # NOTE: In the future you will manually have to add a newer version the same way to upgrade.
@@ -117,11 +110,20 @@ restart() {
 
 generate_cluster() {
   # Set hostname
+  if [ $HOSTNAME -eq 'worker' ];then HOSTNAME="master";fi
   hostname ${HOSTNAME}
   echo ${HOSTNAME} > /etc/hostname
 
-  # Forward IP
-  echo 1 > /proc/sys/net/ipv4/ip_forward
+  # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
+  # See documentation: https://wiki.alpinelinux.org/wiki/Running_glibc_programs
+  # Install util packages
+  apk add gcompat \
+          uuidgen \
+          nfs-utils \
+          cni-plugins \
+          cni-plugin-flannel \
+          flannel-contrib-cni \
+          flannel
 
   # Create master node and subnet
   kubeadm init --pod-network-cidr=${CIDR} --node-name=$(hostname) $IGNORE_PREFLIGHT_ERRORS
@@ -199,10 +201,10 @@ generate_cluster_logic() {
       *) help
     esac
   done
+  generate_cluster
   echo $IGNORE_PREFLIGHT_ERRORS
   echo $HOSTNAME
   echo $CIDR
-  generate_cluster
 }
 
 opt="$1"; 
