@@ -65,9 +65,6 @@ upgrade() {
   /etc/init.d/ntpd start
   /etc/init.d/containerd start
 
-  # Create flannel Symlink
-  ln -s /usr/libexec/cni/flannel-amd64 /usr/libexec/cni/flannel
-
   # Ensure that brigeded packets traverse iptable rules
   echo "net.bridge.bridge-nf-call-iptables=1" >> /etc/sysctl.conf
   sysctl net.bridge.bridge-nf-call-iptables=1
@@ -121,10 +118,9 @@ generate_cluster() {
   hostname ${HOSTNAME}
   echo ${HOSTNAME} > /etc/hostname
 
-  # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
-  # See documentation: https://wiki.alpinelinux.org/wiki/Running_glibc_programs
-  # Install util packages
-  apk add cni-plugins
+  # Install kubernetes cluster plugins
+  apk add cni-plugins \
+          cni-plugin-flannel
 
   # Create master node and subnet
   kubeadm init --pod-network-cidr=${CIDR} --node-name=$(hostname) $IGNORE_PREFLIGHT_ERRORS
@@ -189,6 +185,7 @@ generate_cluster_logic() {
   while [ $# -gt 0 ]
   do
     arg="$1"
+    echo $1
     shift;
     case "${arg}" in
       "--ignore-preflight-errors" )
@@ -202,7 +199,7 @@ generate_cluster_logic() {
       *) help
     esac
   done
-  generate_cluster
+  # generate_cluster
   echo $IGNORE_PREFLIGHT_ERRORS
   echo $HOSTNAME
   echo $CIDR
