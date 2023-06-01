@@ -30,6 +30,13 @@ EOT
 }
 
 upgrade() {
+  # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
+  # See documentation: https://wiki.alpinelinux.org/wiki/Running_glibc_programs
+  # Install util packages
+  apk add gcompat \
+          uuidgen \
+          nfs-utils
+
   # Install Kubernetes packages
   apk add kubelet \
           kubeadm \
@@ -117,13 +124,7 @@ generate_cluster() {
   # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
   # See documentation: https://wiki.alpinelinux.org/wiki/Running_glibc_programs
   # Install util packages
-  apk add gcompat \
-          uuidgen \
-          nfs-utils \
-          cni-plugins \
-          cni-plugin-flannel \
-          flannel-contrib-cni \
-          flannel
+  apk add cni-plugins
 
   # Create master node and subnet
   kubeadm init --pod-network-cidr=${CIDR} --node-name=$(hostname) $IGNORE_PREFLIGHT_ERRORS
