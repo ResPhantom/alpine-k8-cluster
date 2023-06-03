@@ -9,7 +9,6 @@
 KUBE_VERSION="${KUBE_VERSION:=1.26}"
 HOSTNAME="${HOSTNAME:=worker}"
 CIDR="${CIDR:=10.244.0.0/16}"
-# IGNORE_PREFLIGHT_ERRORS=
 
 help() {
   printf "some help"
@@ -29,7 +28,13 @@ EOT
   apk upgrade --available
 }
 
-upgrade() {
+install_plugins() {
+  # Install kubernetes cluster plugins
+  apk add cni-plugins \
+          cni-plugin-flannel
+}
+
+init_setup() {
   # NOTE: adding gcompat which includes glibc, this is because alpine use musl and a lot of C language apps rely on specific features found in glibc
   # See documentation: https://wiki.alpinelinux.org/wiki/Running_glibc_programs
   # Install util packages
@@ -41,7 +46,8 @@ upgrade() {
   apk add kubelet \
           kubeadm \
           kubectl \
-          containerd
+          containerd \
+          helm
 
   # Add kernel module for networking
   echo "br_netfilter" > /etc/modules-load.d/k8s.conf
@@ -94,6 +100,10 @@ upgrade() {
 
   # Pre-pulling kubernetes images
   kubeadm config images pull
+
+  # copy this script to sh so you can use it as a global alpine & k8 cluster controller
+  cp ./init.sh /bin/kubecon
+  chmod +x /bin/kubecon
 }
 
 restart() {
@@ -116,10 +126,6 @@ generate_cluster() {
   # Set hostname
   hostname ${HOSTNAME}
   echo ${HOSTNAME} > /etc/hostname
-
-  # Install kubernetes cluster plugins
-  apk add cni-plugins \
-          cni-plugin-flannel
 
   # Create master node and subnet
   kubeadm init --pod-network-cidr=${CIDR} --node-name=$(hostname) $IGNORE_PREFLIGHT_ERRORS
@@ -171,17 +177,15 @@ init_logic() {
       *) help
     esac
   done
-  # copy this script to sh so you can use it as a global alpine & k8 cluster controller
-  cp ./init.sh /bin/kubecon
-  chmod +x /bin/kubecon
 
   update
-  upgrade
+  init_setup
   restart
 }
 
 generate_cluster_logic() {
-  HOSTNAME="master"
+  HOSTNAME="${HOSTNAME:=master}"
+
   while [ $# -gt 0 ]
   do
     arg="$1"
@@ -198,6 +202,7 @@ generate_cluster_logic() {
       *) help
     esac
   done
+  install_plugins
   generate_cluster
   echo $IGNORE_PREFLIGHT_ERRORS
   echo $HOSTNAME
